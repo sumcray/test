@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    {% block css %}　<!--css模块区域-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap-theme.css') }}">
+    {% endblock %}
+
+     {% block js %}<!--js模块区域-->
+        <script src="{{ url_for('static', filename='bootstrap-3.3.7-dist/js/jquery-3.3.1.js') }}"></script>
+        <script src="{{ url_for('static', filename='bootstrap-3.3.7-dist/js/bootstrap.js') }}"></script>
+    {% endblock %}
+
+    <script language="javascript">
+        $(document).ready(function() {
+            var myjson=jQuery.parseJSON({{ json_data|tojson }});
+            var data={"rows":myjson}
+            alert(JSON.stringify(data.rows[1]));
+        });
+    </script>
+</head>
+<body>
+    <textarea id="t1">
+
+    </textarea>
+</body>
+</html>

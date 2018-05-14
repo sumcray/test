@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<meta charset="utf-8">
+	<title>Login</title>
+
+    {% block css %}　<!--css模块区域-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap-theme.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    {% endblock %}
+
+    {% block js %}<!--js模块区域-->
+        <script src="{{ url_for('static', filename='login.js') }}"></script>
+        <script src="{{ url_for('static', filename='bootstrap-3.3.7-dist/js/jquery-3.3.1.js') }}"></script>
+        <script src="{{ url_for('static', filename='bootstrap-3.3.7-dist/js/bootstrap.js') }}"></script>
+    {% endblock %}
+</head>
+
+<body onload="deng()">
+    {% include 'common/header_4.html' %}<!--引入网页的头部模板-->
+	<div id="msg">
+		<p id="title">Law Office</p>
+		<div style="width: 60%; margin-left: 20%;">
+			<div id="login" onclick="deng()" class='btn btn-default'>登陆</div>
+			<div id="res" onclick="zhu()" class='btn btn-default'>注册</div>
+		</div>
+		<div id="xian"></div>
+		<div id="xian2"></div>
+		<form id="form1" method="post" action="">
+			<input type="text" class="name_t form-control" id="userid" name="userid" placeholder="  账号" spellcheck="false" />
+			<input type="password" id="pwd_t" class="form-control" name="pwd" placeholder=" 密码" spellcheck="false" />
+			<input type="hidden" name="type" value="user" />
+			<div id="login_x" onclick="login()" class='btn btn-primary'>登陆</div>
+		</form>
+		<form id="form2" method="post" action="">
+			<input type="text" class="name_t form-control" id="userid2" name="userid" placeholder="  账号" spellcheck="false" />
+			<input type="text" id="name2" name="name" class="name_t form-control" placeholder="  姓名" />
+			<input type="password" id="pwd_t2" class="form-control" name="pwd" placeholder=" 密码" spellcheck="false" />
+			<div id="login_b" onclick="regist()" class='btn btn-primary'>注册</div>
+		</form>
+	</div>
+</body>
+
+</html>
